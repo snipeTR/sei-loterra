@@ -2166,7 +2166,7 @@ mod tests {
             let store = WINNING_COMBINATION
                 .load(deps.as_ref().storage, &state.lottery_counter.to_be_bytes())
                 .unwrap();
-            assert_eq!(store, "39493d");
+            assert_eq!(store, "457772");
             let state_after = read_state(deps.as_ref().storage).unwrap();
             let jackpot_reward_after = JACKPOT
                 .load(deps.as_ref().storage, &state.lottery_counter.to_be_bytes())
@@ -2353,7 +2353,7 @@ mod tests {
             let store = WINNING_COMBINATION
                 .load(deps.as_ref().storage, &state.lottery_counter.to_be_bytes())
                 .unwrap();
-            assert_eq!(store, "39493d");
+            assert_eq!(store, "457772");
 
             // TODO add winner checks
             let state_after = read_state(deps.as_ref().storage).unwrap();
