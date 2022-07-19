@@ -1327,7 +1327,7 @@ mod tests {
     }
 
     fn default_init(deps: DepsMut) {
-        const DENOM_STABLE: &str = "ust";
+        const DENOM_STABLE: &str = "usei";
         const BLOCK_TIME_PLAY: u64 = 1610566920;
         const EVERY_BLOCK_TIME_PLAY: u64 = 50000;
         const POLL_DEFAULT_END_HEIGHT: u64 = 40_000;
@@ -1338,7 +1338,7 @@ mod tests {
             block_time_play: BLOCK_TIME_PLAY,
             every_block_time_play: EVERY_BLOCK_TIME_PLAY,
             poll_default_end_height: POLL_DEFAULT_END_HEIGHT,
-            terrand_contract_address: "terrand".to_string(),
+            terrand_contract_address: "seid".to_string(),
             loterra_cw20_contract_address: "cw20".to_string(),
             loterra_staking_contract_address: "staking".to_string(),
             holders_bonus_block_time_end: BONUS_BLOCK_TIME_END,
@@ -1586,7 +1586,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(1_000_000),
                     }],
                 ),
@@ -1619,7 +1619,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(3_000_000),
                     }],
                 ),
@@ -1670,7 +1670,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(2_000_000),
                     }],
                 ),
@@ -1706,7 +1706,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(2_000_000),
                     }],
                 ),
@@ -1753,7 +1753,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128::zero(),
                     }],
                 ),
@@ -1763,7 +1763,7 @@ mod tests {
             match res {
                 Err(StdError::GenericErr { msg, .. }) => assert_eq!(
                     msg,
-                    "you need to send 1000000ust per combination in order to register"
+                    "you need to send 1000000usei per combination in order to register"
                 ),
                 _ => panic!("Unexpected error"),
             }
@@ -1787,7 +1787,7 @@ mod tests {
                     before_all.default_sender.as_str(),
                     &[
                         Coin {
-                            denom: "ust".to_string(),
+                            denom: "usei".to_string(),
                             amount: Uint128(1_000_000),
                         },
                         Coin {
@@ -1801,7 +1801,7 @@ mod tests {
 
             match res {
                 Err(StdError::GenericErr { msg, .. }) => {
-                    assert_eq!(msg, "Only send ust to register")
+                    assert_eq!(msg, "Only send usei to register")
                 }
                 _ => panic!("Unexpected error"),
             }
@@ -1835,7 +1835,7 @@ mod tests {
             match res {
                 Err(StdError::GenericErr { msg, .. }) => assert_eq!(
                     msg,
-                    "you need to send 1000000ust per combination in order to register"
+                    "you need to send 1000000usei per combination in order to register"
                 ),
                 _ => panic!("Unexpected error"),
             }
@@ -1858,7 +1858,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(1_000_000),
                     }],
                 ),
@@ -1891,7 +1891,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(2_000_000),
                     }],
                 ),
@@ -1926,14 +1926,14 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(1_000_000),
                     }],
                 ),
                 msg.clone(),
             );
             match res {
-                Err(StdError::GenericErr { msg, .. }) => assert_eq!(msg, "send 2000000ust"),
+                Err(StdError::GenericErr { msg, .. }) => assert_eq!(msg, "send 2000000usei"),
                 _ => panic!("Unexpected error"),
             }
             // Fail sending more than required (2_000_000)
@@ -1943,14 +1943,14 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(3_000_000),
                     }],
                 ),
                 msg,
             );
             match res {
-                Err(StdError::GenericErr { msg, .. }) => assert_eq!(msg, "send 2000000ust"),
+                Err(StdError::GenericErr { msg, .. }) => assert_eq!(msg, "send 2000000usei"),
                 _ => panic!("Unexpected error"),
             }
         }
@@ -1976,7 +1976,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(3_000_000),
                     }],
                 ),
@@ -2013,7 +2013,7 @@ mod tests {
         fn not_allowed_registration_in_progress() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2035,7 +2035,7 @@ mod tests {
         fn do_not_send_funds() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2044,7 +2044,7 @@ mod tests {
             let info = mock_info(
                 before_all.default_sender.as_str(),
                 &[Coin {
-                    denom: "ust".to_string(),
+                    denom: "usei".to_string(),
                     amount: Uint128(9),
                 }],
             );
@@ -2063,7 +2063,7 @@ mod tests {
         fn multi_contract_call_terrand() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
 
@@ -2082,7 +2082,7 @@ mod tests {
             let before_all = before_all();
             let contract_balance = Uint128(9_000_000);
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: contract_balance.clone(),
             }]);
 
@@ -2102,7 +2102,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(1_000_000),
                     }],
                 ),
@@ -2120,7 +2120,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender_two.as_str(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(1_000_000),
                     }],
                 ),
@@ -2157,7 +2157,7 @@ mod tests {
                 CosmosMsg::Bank(BankMsg::Send {
                     to_address: "terra1q88h7ewu6h3am4mxxeqhu3srxterrandworker".to_string(),
                     amount: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(178)
                     }]
                 })
@@ -2188,7 +2188,7 @@ mod tests {
         fn success_no_big_winner() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
 
@@ -2208,7 +2208,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender_two.as_str().clone(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(1_000_000),
                     }],
                 ),
@@ -2243,7 +2243,7 @@ mod tests {
                 CosmosMsg::Bank(BankMsg::Send {
                     to_address: "terra1q88h7ewu6h3am4mxxeqhu3srxterrandworker".to_string(),
                     amount: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(178)
                     }]
                 })
@@ -2269,7 +2269,7 @@ mod tests {
             let before_all = before_all();
             let contract_balance = Uint128(9_000_000);
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: contract_balance.clone(),
             }]);
 
@@ -2289,7 +2289,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender.as_str().clone(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(1_000_000),
                     }],
                 ),
@@ -2307,7 +2307,7 @@ mod tests {
                 mock_info(
                     before_all.default_sender_two.as_str().clone(),
                     &[Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(1_000_000),
                     }],
                 ),
@@ -2344,7 +2344,7 @@ mod tests {
                 CosmosMsg::Bank(BankMsg::Send {
                     to_address: "terra1q88h7ewu6h3am4mxxeqhu3srxterrandworker".to_string(),
                     amount: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(178)
                     }]
                 })
@@ -2405,14 +2405,14 @@ mod tests {
         fn do_not_send_funds() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
             let info = mock_info(
                 before_all.default_sender.as_str().clone(),
                 &[Coin {
-                    denom: "uluna".to_string(),
+                    denom: "usei".to_string(),
                     amount: Uint128(1_000),
                 }],
             );
@@ -2430,7 +2430,7 @@ mod tests {
         fn collect_jackpot_is_closed() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2464,7 +2464,7 @@ mod tests {
         fn no_jackpot_rewards() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2497,7 +2497,7 @@ mod tests {
         fn no_winners() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2529,7 +2529,7 @@ mod tests {
         fn contract_balance_empty() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(0),
             }]);
 
@@ -2591,7 +2591,7 @@ mod tests {
         fn some_winner_sender_excluded() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2638,7 +2638,7 @@ mod tests {
         fn success() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2682,7 +2682,7 @@ mod tests {
                 CosmosMsg::Bank(BankMsg::Send {
                     to_address: before_all.default_sender.clone(),
                     amount: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: amount_claimed.clone()
                     }]
                 })
@@ -2698,7 +2698,7 @@ mod tests {
                         .to_string(),
                     msg: Binary::from(r#"{"update_global_index":{}}"#.as_bytes()),
                     send: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(215346)
                     }]
                 })
@@ -2752,7 +2752,7 @@ mod tests {
         fn success_collecting_for_someone() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2798,7 +2798,7 @@ mod tests {
                 CosmosMsg::Bank(BankMsg::Send {
                     to_address: before_all.default_sender.clone(),
                     amount: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: amount_claimed.clone()
                     }]
                 })
@@ -2813,7 +2813,7 @@ mod tests {
                         .to_string(),
                     msg: Binary::from(r#"{"update_global_index":{}}"#.as_bytes()),
                     send: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(215346)
                     }]
                 })
@@ -2868,7 +2868,7 @@ mod tests {
         fn success_multiple_win() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -2917,7 +2917,7 @@ mod tests {
                 CosmosMsg::Bank(BankMsg::Send {
                     to_address: before_all.default_sender.clone(),
                     amount: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: amount_claimed.clone()
                     }]
                 })
@@ -2932,7 +2932,7 @@ mod tests {
                         .to_string(),
                     msg: Binary::from(r#"{"update_global_index":{}}"#.as_bytes()),
                     send: vec![Coin {
-                        denom: "ust".to_string(),
+                        denom: "usei".to_string(),
                         amount: Uint128(248349)
                     }]
                 })
@@ -2991,7 +2991,7 @@ mod tests {
         fn description_min_error() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3017,7 +3017,7 @@ mod tests {
         fn description_max_error() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3047,7 +3047,7 @@ mod tests {
         fn do_not_send_funds() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3062,7 +3062,7 @@ mod tests {
             let info = mock_info(
                 before_all.default_sender.as_str().clone(),
                 &[Coin {
-                    denom: "ust".to_string(),
+                    denom: "usei".to_string(),
                     amount: Uint128(1_000),
                 }],
             );
@@ -3119,7 +3119,7 @@ mod tests {
         fn all_proposal_amount_error() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3322,7 +3322,7 @@ mod tests {
         fn success() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_token_balances(Uint128(200_000));
@@ -3518,7 +3518,7 @@ mod tests {
         fn do_not_send_funds() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3528,7 +3528,7 @@ mod tests {
             let info = mock_info(
                 before_all.default_sender.as_str().clone(),
                 &[Coin {
-                    denom: "ust".to_string(),
+                    denom: "usei".to_string(),
                     amount: Uint128(9_000_000),
                 }],
             );
@@ -3549,7 +3549,7 @@ mod tests {
         fn poll_deactivated() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3590,7 +3590,7 @@ mod tests {
         fn poll_expired() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3618,7 +3618,7 @@ mod tests {
         fn only_stakers_with_bonded_tokens_can_vote() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_holder(
@@ -3647,7 +3647,7 @@ mod tests {
         fn success() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_holder(
@@ -3715,7 +3715,7 @@ mod tests {
         fn do_not_send_funds() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3724,7 +3724,7 @@ mod tests {
             let info = mock_info(
                 before_all.default_sender.as_str().clone(),
                 &[Coin {
-                    denom: "ust".to_string(),
+                    denom: "usei".to_string(),
                     amount: Uint128(1_000),
                 }],
             );
@@ -3742,7 +3742,7 @@ mod tests {
         fn poll_expired() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3765,7 +3765,7 @@ mod tests {
         fn only_creator_can_reject() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3787,7 +3787,7 @@ mod tests {
         fn success() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3856,7 +3856,7 @@ mod tests {
         fn do_not_send_funds() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3866,7 +3866,7 @@ mod tests {
             let info = mock_info(
                 before_all.default_sender.as_str().clone(),
                 &[Coin {
-                    denom: "ust".to_string(),
+                    denom: "usei".to_string(),
                     amount: Uint128(9_000_000),
                 }],
             );
@@ -3884,7 +3884,7 @@ mod tests {
         fn poll_expired() {
             let before_all = before_all();
             let mut deps = mock_dependencies(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3923,7 +3923,7 @@ mod tests {
         fn poll_still_in_progress() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             default_init(deps.as_mut());
@@ -3961,7 +3961,7 @@ mod tests {
         fn success_with_reject() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_token_balances(Uint128(200_000));
@@ -3989,7 +3989,7 @@ mod tests {
         fn success_dao_funding() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_token_balances(Uint128(200_000));
@@ -4056,7 +4056,7 @@ mod tests {
         fn success_staking_migration() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_token_balances(Uint128(200_000));
@@ -4116,7 +4116,7 @@ mod tests {
         fn success_security_migration() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_token_balances(Uint128(200_000));
@@ -4156,7 +4156,7 @@ mod tests {
         fn success_with_passed() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_token_balances(Uint128(200_000));
@@ -4211,7 +4211,7 @@ mod tests {
         fn success_with_proposal_not_expired_yet_and_more_50_percent_weight_vote() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_token_balances(Uint128(200_000));
@@ -4266,7 +4266,7 @@ mod tests {
         fn error_with_proposal_not_expired_yet_and_less_50_percent_weight_vote() {
             let before_all = before_all();
             let mut deps = mock_dependencies_custom(&[Coin {
-                denom: "ust".to_string(),
+                denom: "usei".to_string(),
                 amount: Uint128(9_000_000),
             }]);
             deps.querier.with_token_balances(Uint128(200_000));

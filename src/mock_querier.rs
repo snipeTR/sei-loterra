@@ -108,7 +108,7 @@ impl WasmMockQuerier {
                         balance: self.lottery_balance_response.balance,
                     };
                     return SystemResult::Ok(ContractResult::from(to_binary(&msg_balance)));
-                } else if contract_addr == &"terrand".to_string() {
+                } else if contract_addr == &"seid".to_string() {
                     let msg_terrand = TerrandResponse {
                         randomness: Binary::from(
                             "OdRl+j6PHnN84dy12n4Oq1BrGktD73FW4SKPihxfB9I=".as_bytes(),
