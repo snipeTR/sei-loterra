@@ -2155,7 +2155,7 @@ mod tests {
             assert_eq!(
                 res.messages[0],
                 CosmosMsg::Bank(BankMsg::Send {
-                    to_address: "terra1q88h7ewu6h3am4mxxeqhu3srxterrandworker".to_string(),
+                    to_address: "sei1q44jhssfg2nkae7dprlwllcjjula0txtaj6rjf".to_string(),
                     amount: vec![Coin {
                         denom: "usei".to_string(),
                         amount: Uint128(178)
@@ -2241,7 +2241,7 @@ mod tests {
             assert_eq!(
                 res.messages[0],
                 CosmosMsg::Bank(BankMsg::Send {
-                    to_address: "terra1q88h7ewu6h3am4mxxeqhu3srxterrandworker".to_string(),
+                    to_address: "sei1q44jhssfg2nkae7dprlwllcjjula0txtaj6rjf".to_string(),
                     amount: vec![Coin {
                         denom: "usei".to_string(),
                         amount: Uint128(178)
@@ -2342,7 +2342,7 @@ mod tests {
             assert_eq!(
                 res.messages[0],
                 CosmosMsg::Bank(BankMsg::Send {
-                    to_address: "terra1q88h7ewu6h3am4mxxeqhu3srxterrandworker".to_string(),
+                    to_address: "sei1q44jhssfg2nkae7dprlwllcjjula0txtaj6rjf".to_string(),
                     amount: vec![Coin {
                         denom: "usei".to_string(),
                         amount: Uint128(178)

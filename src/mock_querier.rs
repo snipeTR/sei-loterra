@@ -111,9 +111,9 @@ impl WasmMockQuerier {
                 } else if contract_addr == &"seid".to_string() {
                     let msg_terrand = TerrandResponse {
                         randomness: Binary::from(
-                            "OdRl+j6PHnN84dy12n4Oq1BrGktD73FW4SKPihxfB9I=".as_bytes(),
+                            "A0YNCe415cpzb35UDmZ+8f07r++JLXy73GvTnl+aiEwr".as_bytes(),
                         ),
-                        worker: "terra1q88h7ewu6h3am4mxxeqhu3srxterrandworker".to_string(),
+                        worker: "sei1q44jhssfg2nkae7dprlwllcjjula0txtaj6rjf".to_string(),
                     };
                     return SystemResult::Ok(ContractResult::from(to_binary(&msg_terrand)));
                 } else if contract_addr == &"staking".to_string() {
@@ -159,7 +159,7 @@ impl WasmMockQuerier {
                             .as_bytes(),
                     ) {
                         let msg_balance = GetHolderResponse {
-                            address: "terra1q88h7ewu6h3am4mxxeqhu3srt7zw4z5s20q007".to_string(),
+                            address: "sei1q44jhssfg2nkae7dprlwllcjjula0txtaj6rjf".to_string(),
                             balance: self.holder_response.balance,
                             index: self.holder_response.index,
                             pending_rewards: self.holder_response.pending_rewards,
